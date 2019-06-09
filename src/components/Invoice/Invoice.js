@@ -26,8 +26,9 @@ class Invoice extends Component {
         }
     }
     render() { 
-        const subtotal = this.state.items.reduce((p,c)=> c.unitPrice * c.qty + p, 0);
+        let subtotal = 0.0;
         const res = this.state.items.map((item) => {
+            subtotal += item.qty * item.unitPrice;
             return (
               <tr>
                   <td>{item.item}</td>
