@@ -5,6 +5,7 @@ class Invoice extends Component {
         item:'item1',
         qty:1,
         unitPrice: 200,
+        discounts: 100
     }
     constructor(props) {
         super(props);
@@ -25,9 +26,8 @@ class Invoice extends Component {
         }
     }
     render() { 
-        let total;
+        const subtotal = this.state.items.reduce((p,c)=> c.unitPrice * c.qty + p, 0);
         const res = this.state.items.map((item) => {
-             total += item.unitPrice*item.qty;
             return (
               <tr>
                   <td>{item.item}</td>
@@ -48,7 +48,8 @@ class Invoice extends Component {
                     </tr>
                 {res}
                 <tr>
-                    <th>Subtotal: {}</th>
+                    <th>Subtotal:{subtotal}</th>
+                    <th>Final: {subtotal-this.props.discounts}</th>
                 </tr>
                 </table>
             </div>
