@@ -47,11 +47,11 @@ class Invoice extends Component {
                         <th>Unit Price</th>
                         <th>Total Price</th>
                     </tr>
-                {res}
-                <tr>
-                    <th>Subtotal:{subtotal}</th>
-                    <th>Final: {subtotal-this.props.discounts}</th>
-                </tr>
+                    {res}
+                    <tr>
+                        <th>Subtotal:{subtotal}</th>
+                        <th>Final: {subtotal-this.props.discounts}</th>
+                    </tr>
                 </table>
             </div>
         )
