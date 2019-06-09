@@ -19,10 +19,24 @@ class Invoice extends Component {
                 qty:2,
                 unitPrice: 400,}
 
-            ]
+            ],
+            subTotal: ''
+        
         }
     }
     render() { 
+        let total;
+        const res = this.state.items.map((item) => {
+             total += item.unitPrice*item.qty;
+            return (
+              <tr>
+                  <td>{item.item}</td>
+                  <td>{item.qty}</td>
+                  <td>{item.unitPrice}</td>
+                  <td>{item.unitPrice*item.qty}</td>
+              </tr>
+            )
+        });
         return (
             <div>
                 <table>
@@ -32,16 +46,10 @@ class Invoice extends Component {
                         <th>Unit Price</th>
                         <th>Total Price</th>
                     </tr>
-                    {this.state.items.map((item) => {
-                            return (
-                              <tr>
-                                  <td>{item.item}</td>
-                                  <td>{item.qty}</td>
-                                  <td>{item.unitPrice}</td>
-                                  <td>{item.unitPrice*item.qty}</td>
-                              </tr>
-                            )
-                        })}
+                {res}
+                <tr>
+                    <th>Subtotal: {}</th>
+                </tr>
                 </table>
             </div>
         )
