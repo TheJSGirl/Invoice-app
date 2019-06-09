@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './CompanyInfo.css';
-import Invoice from '../../Invoice/Invoice';
+import Invoice from '../Invoice/Invoice';
 
 class CompanyInfo extends Component {
      static defaultProps = {
